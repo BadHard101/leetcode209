@@ -2,12 +2,9 @@ package org.example;
 
 public class Main {
     public static int minSubArrayLen(int target, int[] nums) {
-        int left = 0, right = 0;
-        int min = Integer.MAX_VALUE;
+        int left = 0, right = 0, min = Integer.MAX_VALUE, sum = nums[0];
 
-
-        int sum = nums[0];
-        while (right < nums.length) {
+        while (true) {
             while (sum < target) {
                 right++;
                 if (right == nums.length) {
@@ -23,8 +20,6 @@ public class Main {
                 if (sum >= target) min = Math.min(min, right-left+1);
             }
         }
-
-        return 0;
     }
 
     public static void main(String[] args) {
